@@ -7,15 +7,17 @@ metadata:
 spec:
    template:
       metadata:
-         name: my-nginx-pod
+         name: my-rest-api
          labels:
             app: myapp
             type: front-end
       spec:
         containers:
-           - name: nginx-container
-             image: nginx
+           - name: rest-api
+             image: yuvarajkumar/restapi:myapi-$BUILD_NUMBER
+             ports:
+             - containerPort: 8090
    replicas: 3
    selector:
       matchLabels:
-         type: front-end	
+         type: front-end

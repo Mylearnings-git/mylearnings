@@ -14,7 +14,7 @@ spec:
       spec:
         containers:
            - name: rest-api
-             image: yuvarajkumar/restapi:myapi-12
+             image: yuvarajkumar/restapi:myapi-Build_Number
              ports:
              - containerPort: 8090
    replicas: 3

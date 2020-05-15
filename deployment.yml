@@ -3,15 +3,14 @@ kind: Deployment
 metadata:
    name: my-deployment
    labels:
-     app: myapp
-     type: front-end
+     app: myapp     
 spec:
    template:
       metadata:
          name: my-rest-api
          labels:
             app: myapp
-      #      type: front-end
+            type: front-end
       spec:
         containers:
            - name: rest-api
@@ -21,4 +20,4 @@ spec:
    replicas: 3
    selector:
       matchLabels:
-         app: myapp
+         type: front-end

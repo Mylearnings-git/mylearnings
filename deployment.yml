@@ -19,5 +19,6 @@ spec:
              - containerPort: 8090
    replicas: 3
    selector:
-      matchLabels:
-         type: front-end
+      #matchLabels:
+       #  type: front-end
+       app: myapp

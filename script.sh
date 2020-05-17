@@ -25,4 +25,6 @@ else
  echo "The script is not being executed with root privilege"
 fi
 
+fi
+
 	

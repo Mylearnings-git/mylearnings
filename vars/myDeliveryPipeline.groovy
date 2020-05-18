@@ -8,7 +8,7 @@ def call(Map pipelineParams) {
                     git branch: pipelineParams.branch, url: pipelineParams.scmUrl
                 }
             }
-            Stage{'mvn build')
+            Stage('mvn build')
                   {
              steps
                       {

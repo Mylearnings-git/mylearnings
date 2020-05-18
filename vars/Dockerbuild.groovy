@@ -1,4 +1,10 @@
 def call(Map project, Map hubUser) {
+    
+    pipeline {
+        agent any
+        stages {
+            stage('Build docker git') {
+                steps {
     sh "docker image build -t hubuser.user/project.name:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
     withCredentials([usernamePassword(
             credentialsId: "Docker",
@@ -9,3 +15,4 @@ def call(Map project, Map hubUser) {
     }
     sh "docker image push ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
 }
+            }}}}

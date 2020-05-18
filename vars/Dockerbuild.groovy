@@ -1,5 +1,5 @@
 def call(Map project, Map hubUser) {
-    sh "docker image build -t ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
+    sh "docker image build -t hubuser.user/project.name:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
     withCredentials([usernamePassword(
             credentialsId: "Docker",
             usernameVariable: "Username",

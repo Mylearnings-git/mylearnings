@@ -1,3 +1,3 @@
 @Library('Mysharedlib') _
 myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
-Dockerbuild(hubUser: 'yuvarajkumar', project: 'rsetapi', USER: 'yuvarajkumar', PASS: 'Yuvaraj@123')
+Dockerbuild(hubUser: 'yuvarajkumar', project: 'rsetapi')

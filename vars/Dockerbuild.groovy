@@ -5,7 +5,7 @@ def call(Map project, Map hubUser) {
         stages {
             stage('Build docker git') {
                 steps {
-    sh "docker image build -t hubuser.user/project.name:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
+    sh "docker image build -t hubUser.user/project.name:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
     withCredentials([usernamePassword(
             credentialsId: "Docker",
             usernameVariable: "Username",

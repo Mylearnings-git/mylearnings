@@ -1,4 +1,4 @@
-def call('Map pipelineParams') {
+def call(Map pipelineParams) {
   
   git branch: pipelineParams.branch, url: pipelineParams.scmUrl
 

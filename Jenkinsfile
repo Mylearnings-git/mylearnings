@@ -8,6 +8,7 @@ agent any
       steps {
          //ef projects = readJSON file: 'Projects.json'
          //def data = new JsonSlurperClassic().parseText(projects)
+        //myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
         myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
       }
     }

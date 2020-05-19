@@ -4,7 +4,7 @@ pipeline
 {
 agent any
   stages {
-   // stage('checkout'){
+   stage('checkout'){
      // steps {
          //ef projects = readJSON file: 'Projects.json'
          //def data = new JsonSlurperClassic().parseText(projects)

@@ -14,6 +14,13 @@ agent any
         Dockerbuild()
       }
     }
+    stage ('sonar analysis')
+    {
+      steps {
+        
+        sonar()
+      }
+    }
     
   }
 }

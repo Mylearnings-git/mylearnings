@@ -1,0 +1,11 @@
+{
+"jenkinfile": {
+   "Gitcredential": [
+       {
+     "url": https://github.com/Mylearnings-git/mylearnings.git",
+     "branch": "master"
+       }
+       ]
+     
+}
+}      

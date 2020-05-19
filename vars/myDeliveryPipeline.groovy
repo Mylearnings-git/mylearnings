@@ -1,5 +1,7 @@
-def call(String url='mylearnings', String branch='mybranch') {
+def call(Map pipelineParams') {
+  
+  git branch: pipelineParams.branch, url: pipelineParams.scmUrl
 
-  git branch: ${branch}, url: ${url}
+  //git branch: ${branch}, url: ${url}
              
 }

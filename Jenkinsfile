@@ -30,7 +30,7 @@ agent any
     {
       steps {
         
-        Dockerbuild(project: 'restapi', hubUser: 'yuvarajkumar')
+        Dockbuild(project: 'restapi', hubUser: 'yuvarajkumar')
       }
     }
     

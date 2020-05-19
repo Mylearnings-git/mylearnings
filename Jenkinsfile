@@ -15,7 +15,7 @@ agent any
     stage('mvn build')
     {
       steps {
-        Dockerbuild()
+        mavenbuild()
       }
     }
     stage ('sonar analysis')
@@ -23,6 +23,14 @@ agent any
       steps {
         
         sonar()
+      }
+    }
+    
+     stage ('Docker build')
+    {
+      steps {
+        
+        Dockerbuild(project: 'restapi', hubUser: 'yuvarajkumar')
       }
     }
     

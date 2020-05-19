@@ -5,7 +5,8 @@ agent any
   stages {
     stage('checkout'){
       steps {
-     myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
+         def projects = readJSON file: "${env.WORKSPACE}\\Projects.json"
+     myDeliveryPipeline(branch: 'Projects.jenkinfile.Gitcredential[1].branch', scmUrl: 'Projects.jenkinfile.Gitcredential[1].url')
       }
     }
     stage('mvn build')

@@ -33,6 +33,13 @@ agent any
         Dockbuild('restapi', 'yuvarajkumar')
       }
     }
+    stage ('Kuberneted deployment')
+    {
+      steps {
+        
+        kub('restapi1', 'us-west-2')
+      }
+    }
     
   }
 }

@@ -6,7 +6,7 @@ agent any
     stage('checkout'){
       steps {
          def projects = readJSON file: 'Projects.json'
-     myDeliveryPipeline(branch: 'Projects.jenkinfile.Gitcredential[1].branch', scmUrl: 'Projects.jenkinfile.Gitcredential[1].url')
+     myDeliveryPipeline(branch: 'projects.jenkinfile.Gitcredential[1].branch', scmUrl: 'projects.jenkinfile.Gitcredential[1].url')
       }
     }
     stage('mvn build')

@@ -1,5 +1,5 @@
 @Library('Mysharedlib') _
-import com.builder.GlobalVars
+import org.foo.GlobalVars
 //import groovy.json.JsonSlurperClassic
 pipeline
 {

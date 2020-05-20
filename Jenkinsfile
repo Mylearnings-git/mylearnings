@@ -3,7 +3,7 @@
 //import groovy.json.JsonSlurper
 import groovy.json.JsonSlurperClassic
 import groovy.json.JsonOutput
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def filename = readJSON '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 def JsonSlurperClassic = new JsonSlurperClassic()
 data = JsonSlurperClassic.parse(new File(filename))
 println(data)

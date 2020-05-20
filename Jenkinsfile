@@ -5,7 +5,7 @@ import groovy.json.JsonOutput
 
 pipeline
 {
-def inputfile = readFile('Projects.json)'
+def inputfile = readFile('Projects.json')
         def fileContents = new File(inputFile).getText('UTF-8')
        def jsonSlurper = new JsonSlurper()
        def jsonObject = jsonSlurper.parseText(fileContents)

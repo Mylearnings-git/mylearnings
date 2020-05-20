@@ -2,20 +2,12 @@
 //import static org.foo.GlobalVars.*
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def jsonSlurper = new JsonSlurper()
-data = jsonSlurper.parse(new File(filename))
+//def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+//def jsonSlurper = new JsonSlurper()
+//data = jsonSlurper.parse(new File(filename))
 pipeline
 {
- 
-                
-                
-   //def inputfile = readFile('Projects.json')
-     //   def fileContents = new File(inputFile).getText('UTF-8')
-     //  def jsonSlurper = new JsonSlurper()
-     //  def jsonObject = jsonSlurper.parseText(fileContents)
-                
-agent any
+ agent any
   stages {
    stage('checkout'){
      steps {

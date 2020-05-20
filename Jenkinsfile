@@ -7,13 +7,19 @@ import groovy.json.JsonOutput
 //data = jsonSlurper.parse(new File(filename))
 pipeline
 {
+ 
+ environment
+ {
+        def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def jsonSlurper = new JsonSlurper()
+data = jsonSlurper.parse(new File(filename))
+ }
+ 
  agent any
   stages {
    stage('checkout'){
     steps {
-      def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def jsonSlurper = new JsonSlurper()
-data = jsonSlurper.parse(new File(filename))
+
 
       //echo "hello"
                 // println(data.jenkinfile.Gitcred.url)

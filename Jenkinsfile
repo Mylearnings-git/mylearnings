@@ -1,10 +1,11 @@
 @Library('Mysharedlib') _
 //import static org.foo.GlobalVars.*
-import groovy.json.JsonSlurper
+//import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 import groovy.json.JsonOutput
-def filename = '/var/lib/jenkins/workspace/mysharedlib@2/Projects.json'
-def jsonSlurper = new JsonSlurper()
-data = jsonSlurper.parse(new File(filename))
+def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def JsonSlurperClassic = new JsonSlurper()
+data = JsonSlurperClassic.parse(new File(filename))
 println(data)
 pipeline
 {

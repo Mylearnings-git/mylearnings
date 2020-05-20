@@ -5,25 +5,24 @@ import groovy.json.JsonOutput
 
 pipeline
 {
-environment
-        {
+      
                 
-                filename = Projects.json
-                def jsonSlurper = new JsonSlurper()
-                data = jsonSlurper.parse(new File(filename))
-                PrintIn(data)
+                
    //def inputfile = readFile('Projects.json')
      //   def fileContents = new File(inputFile).getText('UTF-8')
      //  def jsonSlurper = new JsonSlurper()
      //  def jsonObject = jsonSlurper.parseText(fileContents)
-        }             
+                
 agent any
   stages {
    stage('checkout'){
      steps {
-         
+         filename = Projects.json
+                def jsonSlurper = new JsonSlurper()
+                data = jsonSlurper.parse(new File(filename))
+             PrintIn(data)
          //def data = new JsonSlurperClassic().parseText(projects)
-      myDeliveryPipeline(branch: jsonObject.jenkinfile.Gitcredential.branch, scmUrl: jsonObject.jenkinfile.Gitcredential.url)
+      //myDeliveryPipeline(branch: jsonObject.jenkinfile.Gitcredential.branch, scmUrl: jsonObject.jenkinfile.Gitcredential.url)
       // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')

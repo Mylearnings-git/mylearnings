@@ -19,6 +19,7 @@ pipeline
   stages {
    stage('checkout'){
     steps {
+     try { checkout scm } catch(caughtError) { deleteDir(); checkout scm }
      // echo "hello"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)

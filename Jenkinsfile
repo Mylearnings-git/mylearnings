@@ -2,13 +2,16 @@
 //import static org.foo.GlobalVars.*
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-def inputfile = readFile('Projects.json')
-        def fileContents = new File(inputFile).getText('UTF-8')
-       def jsonSlurper = new JsonSlurper()
-       def jsonObject = jsonSlurper.parseText(fileContents)
 
 pipeline
 {
+environment
+        {
+   def inputfile = readFile('Projects.json')
+        def fileContents = new File(inputFile).getText('UTF-8')
+       def jsonSlurper = new JsonSlurper()
+       def jsonObject = jsonSlurper.parseText(fileContents)
+        }             
 agent any
   stages {
    stage('checkout'){

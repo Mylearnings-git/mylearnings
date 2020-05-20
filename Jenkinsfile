@@ -2,11 +2,12 @@
 //import static org.foo.GlobalVars.*
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
+
+pipeline
+{
 def filename = Projects.json
 def jsonSlurper = new JsonSlurper()
 data = jsonSlurper.parse(new File(filename))
-pipeline
-{
       
                 
                 

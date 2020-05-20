@@ -1,12 +1,16 @@
 @Library('Mysharedlib') _
 //import static org.foo.GlobalVars.*
 //import groovy.json.JsonSlurper
-import groovy.json.JsonSlurperClassic
+import jenkins.*
+import jenkins.model.*
+import hudson.*
+import hudson.model.*
+//import groovy.json.JsonSlurperClassic
 //import groovy.json.JsonOutput
 @NonCPS
 def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def JsonSlurperClassic = new JsonSlurperClassic()
-data = JsonSlurperClassic.parse(new File(filename))
+def JsonSlurper = new JsonSlurper()
+data = JsonSlurper.parse(new File(filename))
 //println(data)
 pipeline
 {

@@ -7,10 +7,15 @@ pipeline
 {
 environment
         {
-   def inputfile = readFile('Projects.json')
-        def fileContents = new File(inputFile).getText('UTF-8')
-       def jsonSlurper = new JsonSlurper()
-       def jsonObject = jsonSlurper.parseText(fileContents)
+                
+                filename = Projects.json
+                def jsonSlurper = new JsonSlurper()
+                data = jsonSlurper.parse(new File(filename))
+                PrintIn(data)
+   //def inputfile = readFile('Projects.json')
+     //   def fileContents = new File(inputFile).getText('UTF-8')
+     //  def jsonSlurper = new JsonSlurper()
+     //  def jsonObject = jsonSlurper.parseText(fileContents)
         }             
 agent any
   stages {

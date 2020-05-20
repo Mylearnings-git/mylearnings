@@ -17,7 +17,7 @@ agent any
   stages {
    stage('checkout'){
      steps {
-         filename = Projects.json
+                def filename = Projects.json
                 def jsonSlurper = new JsonSlurper()
                 data = jsonSlurper.parse(new File(filename))
              PrintIn(data)

@@ -2,18 +2,12 @@
 //import static org.foo.GlobalVars.*
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-//def filename = '/var/lib/jenkins/workspace/mysharedlib@2/Projects.json'
-//def jsonSlurper = new JsonSlurper()
-//data = jsonSlurper.parse(new File(filename))
-pipeline
-{
- 
- environment
- {
-        def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def filename = '/var/lib/jenkins/workspace/mysharedlib@2/Projects.json'
 def jsonSlurper = new JsonSlurper()
 data = jsonSlurper.parse(new File(filename))
- }
+Println(data)
+pipeline
+{
  
  agent any
   stages {
@@ -21,7 +15,7 @@ data = jsonSlurper.parse(new File(filename))
     steps {
 
 
-      //echo "hello"
+      echo "hello"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
@@ -30,7 +24,9 @@ data = jsonSlurper.parse(new File(filename))
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
       
-     Println(data)
+     //
+     //
+     //Println(data)
     }
     }
     stage('mvn build')

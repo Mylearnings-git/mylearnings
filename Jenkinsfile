@@ -10,8 +10,11 @@ pipeline
  agent any
   stages {
    stage('checkout'){
-    // steps {
-      
+    steps {
+      def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def jsonSlurper = new JsonSlurper()
+data = jsonSlurper.parse(new File(filename))
+
       //echo "hello"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
@@ -21,11 +24,11 @@ pipeline
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
       
-     // Println(data)
-    // }
-    //}
-    //stage('mvn build')
-    //{
+     Println(data)
+    }
+    }
+    stage('mvn build')
+    {
       steps {
         mavenbuild()
       }

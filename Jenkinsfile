@@ -10,9 +10,9 @@ pipeline
  agent any
   stages {
    stage('checkout'){
-     steps {
+    // steps {
       
-      echo "hello"
+      //echo "hello"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
@@ -22,10 +22,10 @@ pipeline
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
       
      // Println(data)
-     }
-    }
-    stage('mvn build')
-    {
+    // }
+    //}
+    //stage('mvn build')
+    //{
       steps {
         mavenbuild()
       }

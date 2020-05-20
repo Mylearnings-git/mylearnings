@@ -5,7 +5,7 @@ import groovy.json.JsonOutput
 def filename = '/var/lib/jenkins/workspace/mysharedlib@2/Projects.json'
 def jsonSlurper = new JsonSlurper()
 data = jsonSlurper.parse(new File(filename))
-Println(data)
+println(data)
 pipeline
 {
  

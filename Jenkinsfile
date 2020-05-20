@@ -2,7 +2,7 @@
 //import static org.foo.GlobalVars.*
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-def filename = '$workspace/Projects.json'
+def filename = '${WORKSPACE}/Projects.json'
 def jsonSlurper = new JsonSlurper()
 data = jsonSlurper.parse(new File(filename))
 pipeline

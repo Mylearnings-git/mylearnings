@@ -9,8 +9,8 @@ import hudson.model.*
 //import groovy.json.JsonOutput
 @NonCPS
 def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def JsonSlurper = new JsonSlurper()
-data = JsonSlurper.parse(new File(filename))
+def JsonSlurper1 = new JsonSlurper()
+data = JsonSlurper1.parse(new File(filename))
 //println(data)
 pipeline
 {

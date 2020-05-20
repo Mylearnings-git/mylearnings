@@ -19,9 +19,9 @@ agent any
   stages {
    stage('checkout'){
      steps {
-                 println(data.jenkinfile.Gitcred.url)
+                // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
-      //myDeliveryPipeline(branch: jsonObject.jenkinfile.Gitcredential.branch, scmUrl: jsonObject.jenkinfile.Gitcredential.url)
+      myDeliveryPipeline(branch: 'data.jenkinfile.Gitcred.branch', scmUrl: 'data.jenkinfile.Gitcred.url')
       // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')

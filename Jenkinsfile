@@ -2,7 +2,9 @@
 //import static org.foo.GlobalVars.*
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-
+def filename = Projects.json
+def jsonSlurper = new JsonSlurper()
+data = jsonSlurper.parse(new File(filename))
 pipeline
 {
       
@@ -17,10 +19,7 @@ agent any
   stages {
    stage('checkout'){
      steps {
-                def filename = Projects.json
-                def jsonSlurper = new JsonSlurper()
-                data = jsonSlurper.parse(new File(filename))
-             PrintIn(data)
+                 PrintIn(data)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: jsonObject.jenkinfile.Gitcredential.branch, scmUrl: jsonObject.jenkinfile.Gitcredential.url)
       // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')

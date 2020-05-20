@@ -11,6 +11,8 @@ pipeline
   stages {
    stage('checkout'){
      steps {
+      
+      echo "hello"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
@@ -19,7 +21,7 @@ pipeline
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
       
-      Pintln(data)
+     // Println(data)
      }
     }
     stage('mvn build')

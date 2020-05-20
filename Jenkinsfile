@@ -5,12 +5,12 @@ import jenkins.*
 import jenkins.model.*
 import hudson.*
 import hudson.model.*
-//import groovy.json.JsonSlurperClassic
+import groovy.json.JsonSlurperClassic
 //import groovy.json.JsonOutput
-@NonCPS
+//@NonCPS
 def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def JsonSlurper = new JsonSlurper()
-data = JsonSlurper.parse(new File(filename))
+def JsonSlurperClassic = new JsonSlurperClassic()
+data = JsonSlurperClassic.parse(new File(filename))
 //println(data)
 pipeline
 {

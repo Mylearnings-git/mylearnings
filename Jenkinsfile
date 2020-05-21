@@ -51,8 +51,8 @@ pipeline
     {
       steps {
         
-       Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      //Dockbuild('restapi', 'yuvarajkumar')
+      // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
+      Dockbuild('restapi', 'yuvarajkumar')
       }
     }
     stage ('Kuberneted deployment')

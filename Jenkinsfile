@@ -6,12 +6,28 @@ import jenkins.model.*
 import hudson.*
 import hudson.model.*
  @NonCPS
-import groovy.json.JsonSlurperClassic
-string filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-JsonSlurperClassic slurper = new JsonSlurperClassic()
-Map data = slurper.parseText(filename)
+//import groovy.json.JsonSlurperClassic
+//string filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+//JsonSlurperClassic slurper = new JsonSlurperClassic()
+//Map data = slurper.parseText(filename)
 //import groovy.json.JsonOutput
 //println(data)
+
+import groovy.json.JsonSlurper
+String jsonString = '''{
+"jenkinfile": {
+   "Gitcredential": [
+       {
+     "url": "restapi",
+     "branch": "yuvarajkumar"
+       }
+       ]
+     
+}
+}'''
+JsonSlurper slurper = new JsonSlurper()
+Map parsedJson = slurper.parseText(jsonString)
+println(parsedJson)
 pipeline
 {
  agent any

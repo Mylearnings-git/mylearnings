@@ -1,4 +1,4 @@
-def call(Map pipelineParams)
+def call()
 {
 import groovy.json.JsonSlurper
 def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'

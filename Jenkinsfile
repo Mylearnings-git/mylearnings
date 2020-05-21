@@ -16,11 +16,10 @@ import java.util.List;
 import java.util.Map;
  @NonCPS
 import groovy.json.JsonSlurperClassic
-string filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-JsonSlurperClassic slurper = new JsonSlurperClassic()
-Map data = slurper.parseText(filename)
-//import groovy.json.JsonOutput
-println(data)
+def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def jsonSlurper = new JsonSlurper()
+data = jsonSlurper.parse(new File(filename))
+println(data.jenkinfile.Gitcredential.branch)
 
 //import groovy.json.JsonSlurper
 

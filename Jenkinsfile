@@ -9,7 +9,7 @@ import hudson.model.*
 import groovy.json.JsonSlurperClassic
 filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 yuvaraj = new JsonSlurperClassic()
-data = yuvaraj.parse(new File(filename))
+data = yuvaraj.parse(new File(filename)).toString()
 //import groovy.json.JsonOutput
 //println(data)
 pipeline

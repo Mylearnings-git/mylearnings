@@ -5,6 +5,7 @@ import jenkins.*
 import jenkins.model.*
 import hudson.*
 import hudson.model.*
+ @NonCPS
 import groovy.json.JsonSlurperClassic
 filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 yuvaraj = new JsonSlurperClassic()

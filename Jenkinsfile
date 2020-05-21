@@ -8,18 +8,18 @@ import hudson.model.*
 import groovy.json.JsonSlurperClassic
 //import groovy.json.JsonOutput
 //@NonCPS
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def JsonSlurperClassic = new JsonSlurperClassic()
-data = JsonSlurperClassic.parse(new File(filename))
 //println(data)
 pipeline
 {
+filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+JsonSlurperClassic = new JsonSlurperClassic()
+data = JsonSlurperClassic.parse(new File(filename))
  
  agent any
   stages {
    stage('checkout'){
     steps {
-     try { checkout scm } catch(caughtError) { deleteDir(); checkout scm }
+  
      // echo "hello"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)

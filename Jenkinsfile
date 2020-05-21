@@ -62,6 +62,14 @@ pipeline
         kub('restapi1', 'us-west-2')
       }
     }
+   
+   stage ('Klist json')
+    {
+      steps {
+        
+        jso()
+      }
+    }
     
   }
 }

@@ -68,7 +68,9 @@ pipeline
       steps {
         
         jso()
+       {
        println(data)
+       }
       }
     }
     

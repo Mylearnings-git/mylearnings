@@ -14,20 +14,6 @@ import hudson.model.*
 //println(data)
 
 import groovy.json.JsonSlurper
-String jsonString = '''{
-"jenkinfile": {
-   "Gitcredential": [
-       {
-     "url": "restapi",
-     "branch": "yuvarajkumar"
-       }
-       ]
-     
-}
-}'''
-JsonSlurper slurper = new JsonSlurper()
-Map parsedJson = slurper.parseText(jsonString)
-println(parsedJson)
 pipeline
 {
  agent any
@@ -91,6 +77,26 @@ pipeline
       }
       }
     }
+   
+   stage('one')
+   {
+    steps{
+     String jsonString = '''{
+"jenkinfile": {
+   "Gitcredential": [
+       {
+     "url": "restapi",
+     "branch": "yuvarajkumar"
+       }
+       ]
+     
+}
+}'''
+JsonSlurper slurper = new JsonSlurper()
+Map parsedJson = slurper.parseText(jsonString)
+println(parsedJson)
+    }
+   }
    
    
     

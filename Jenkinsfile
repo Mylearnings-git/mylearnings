@@ -5,15 +5,24 @@ import jenkins.*
 import jenkins.model.*
 import hudson.*
 import hudson.model.*
+import groovy.json.JsonSlurper;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
  @NonCPS
-//import groovy.json.JsonSlurperClassic
-//string filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-//JsonSlurperClassic slurper = new JsonSlurperClassic()
-//Map data = slurper.parseText(filename)
+import groovy.json.JsonSlurperClassic
+string filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+JsonSlurperClassic slurper = new JsonSlurperClassic()
+Map data = slurper.parseText(filename)
 //import groovy.json.JsonOutput
-//println(data)
+println(data)
 
-import groovy.json.JsonSlurper
+//import groovy.json.JsonSlurper
 
 pipeline
 {

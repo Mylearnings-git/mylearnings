@@ -50,29 +50,33 @@ pipeline
      stage ('Docker build')
     {
       steps {
+       
+        withCredentials([usernamePassword(
+            credentialsId: "Docker",
+            usernameVariable: "Username",
+            passwordVariable: "Password"
+    )]) {
         
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
       Dockbuild('restapi', 'yuvarajkumar')
+        }
       }
     }
     stage ('Kuberneted deployment')
     {
       steps {
-        
+        withCredentials([[
+ $class: 'AmazonWebServicesCredentialsBinding', 
+ accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+ credentialsId: 'e261da0d-0895-4f7d-953f-28dbf1f27f1c', 
+ secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+ {
         kub('restapi1', 'us-west-2')
+      }
       }
     }
    
-   stage ('Klist json')
-    {
-      steps {
-        
-        jso()
-       {
-       println(data)
-       }
-      }
-    }
+   
     
   }
 }

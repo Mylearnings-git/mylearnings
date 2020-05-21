@@ -15,6 +15,9 @@ import hudson.model.*
 
 import groovy.json.JsonSlurper
 
+
+pipeline
+
 String jsonString = '''{
 "jenkinfile": {
    "Gitcredential": [
@@ -28,8 +31,8 @@ String jsonString = '''{
 }'''
 JsonSlurper slurper = new JsonSlurper()
 Map parsedJson = slurper.parseText(jsonString)
-pipeline
 {
+ 
  agent any
   stages {
    stage('checkout'){

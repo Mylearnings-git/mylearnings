@@ -12,8 +12,8 @@ import groovy.json.JsonSlurperClassic
 pipeline
 {
 filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def JsonSlurperClassic = new JsonSlurperClassic()
-data = JsonSlurperClassic.parse(new File(filename))
+yuvaraj = new JsonSlurperClassic()
+data = yuvaraj.parse(new File(filename))
  
  agent any
   stages {

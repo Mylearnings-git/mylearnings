@@ -15,22 +15,7 @@ import hudson.model.*
 
 import groovy.json.JsonSlurper
 
-
 pipeline
-
-String jsonString = '''{
-"jenkinfile": {
-   "Gitcredential": [
-       {
-     "url": "restapi",
-     "branch": "yuvarajkumar"
-       }
-       ]
-     
-}
-}'''
-JsonSlurper slurper = new JsonSlurper()
-Map parsedJson = slurper.parseText(jsonString)
 {
  
  agent any

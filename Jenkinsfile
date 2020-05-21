@@ -23,7 +23,7 @@ pipeline
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
-      myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
+      myDeliveryPipeline(branch: 'data.', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
       // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
@@ -68,6 +68,7 @@ pipeline
       steps {
         
         jso()
+       println(data)
       }
     }
     

@@ -20,12 +20,9 @@ import groovy.json.*
 pipeline
 {
  agent any
-
-    environment
- {
-    
-def filename = "/var/lib/jenkins/workspace/mysharedlib/Projects.json"
-def jsonSlurper = "new JsonSlurper()"
+ {  
+def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def jsonSlurper = new JsonSlurper()
 data = jsonSlurper.parse(new File(filename))
 //println(data.jenkinfile.Gitcredential.branch")
   //def object = "data.jenkinfile.Gitcredential.branch"

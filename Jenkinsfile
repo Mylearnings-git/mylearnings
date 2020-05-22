@@ -19,16 +19,22 @@ import groovy.json.*
 
 pipeline
 {
- 
  agent any
-  stages {
-   stage('checkout'){
-    steps {
-     
+
+  {
+   
+    environment
+ {
+    
      def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 def jsonSlurper = new JsonSlurper()
 data = jsonSlurper.parse(new File(filename))
-println(data.jenkinfile.Gitcredential.branch)
+//println(data.jenkinfile.Gitcredential.branch)
+ }
+  stages {
+   stage('checkout'){
+    steps {
+   
   
      // echo "hello"
                 // println(data.jenkinfile.Gitcred.url)

@@ -16,10 +16,7 @@
 //import java.util.Map;
  //@NonCPS
 import groovy.json.*
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-def jsonSlurper = new JsonSlurper()
-data = jsonSlurper.parse(new File(filename))
-println(data.jenkinfile.Gitcredential.branch)
+
 pipeline
 {
  
@@ -27,6 +24,11 @@ pipeline
   stages {
    stage('checkout'){
     steps {
+     
+     def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def jsonSlurper = new JsonSlurper()
+data = jsonSlurper.parse(new File(filename))
+println(data.jenkinfile.Gitcredential.branch)
   
      // echo "hello"
                 // println(data.jenkinfile.Gitcred.url)

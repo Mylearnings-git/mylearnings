@@ -29,6 +29,7 @@ def jsonSlurper = "new JsonSlurper()"
 data = "jsonSlurper.parse(new File(filename))"
 //println(data.jenkinfile.Gitcredential.branch")
   def object = "data.jenkinfile.Gitcredential.branch"
+  println(object)
  }
   stages {
    stage('checkout'){

@@ -1,25 +1,26 @@
 @Library('Mysharedlib') _
 //import static org.foo.GlobalVars.*
 //import groovy.json.JsonSlurper
-import jenkins.*
-import jenkins.model.*
-import hudson.*
-import hudson.model.*
-import groovy.json.JsonSlurper;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
- @NonCPS
-import groovy.json.JsonSlurperClassic
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+//import jenkins.*
+//import jenkins.model.*
+//import hudson.*
+//import hudson.model.*
+//import groovy.json.JsonSlurper;
+//import java.io.BufferedReader;
+//import java.io.IOException;
+//import java.io.InputStream;
+//import java.io.InputStreamReader;
+//import java.net.MalformedURLException;
+//import java.net.URL;
+//import java.util.List;
+//import java.util.Map;
+ //@NonCPS
+import groovy.json.*
 def jsonSlurper = new JsonSlurper()
-data = jsonSlurper.parse(new File(filename))
-println(data.jenkinfile.Gitcredential.branch)
+ def filename = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/mysharedlib/Projects.json'), 'UTF-8'))
+def package = jsonSlurper.parse(reader) 
+def version = package.jenkinfile)
+//println(data.jenkinfile.Gitcredential.branch)
 
 //import groovy.json.JsonSlurper
 

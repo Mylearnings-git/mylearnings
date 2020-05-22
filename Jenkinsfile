@@ -21,8 +21,6 @@ pipeline
 {
  agent any
 
-  {
-   
     environment
  {
     

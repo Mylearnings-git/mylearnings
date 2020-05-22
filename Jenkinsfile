@@ -18,8 +18,8 @@
 import groovy.json.*
 def jsonSlurper = new JsonSlurper()
  def filename = new BufferedReader(new InputStreamReader(new FileInputStream('/var/lib/jenkins/workspace/mysharedlib/Projects.json'), 'UTF-8'))
-def package = jsonSlurper.parse(reader) 
-def version = package.jenkinfile)
+def package = jsonSlurper.parse(filename) 
+def version = package.jenkinfile
 //println(data.jenkinfile.Gitcredential.branch)
 
 //import groovy.json.JsonSlurper

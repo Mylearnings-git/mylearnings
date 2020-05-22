@@ -27,7 +27,8 @@ pipeline
 def filename = "/var/lib/jenkins/workspace/mysharedlib/Projects.json"
 def jsonSlurper = "new JsonSlurper()"
 data = "jsonSlurper.parse(new File(filename))"
-println(data.jenkinfile.Gitcredential.branch)
+//println(data.jenkinfile.Gitcredential.branch")
+  def object = "data.jenkinfile.Gitcredential.branch"
  }
   stages {
    stage('checkout'){

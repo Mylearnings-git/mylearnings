@@ -23,7 +23,7 @@ println(data)
  //def object = "data.jenkinfile.Gitcredential.branch"
 pipeline
 {
- agent any
+ master//agent any
    stages {
    stage('checkout'){
     steps {

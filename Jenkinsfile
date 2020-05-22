@@ -16,30 +16,24 @@
 //import java.util.Map;
  //@NonCPS
 import groovy.json.*
-
  //def object = "data.jenkinfile.Gitcredential.branch"
 pipeline
 {
-  agent any
- 
+ agent any
  environment
  {
-  def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 jsonSlurper = 'new JsonSlurper()'
 def data = 'jsonSlurper.parse(new File(filename))'
 //println(data)
  }
    stages {
-   stage('checkout'){
+   stage('checkout')
     steps {
-   
-  
-     // echo "hello"
-                // println(data.jenkinfile.Gitcred.url)
+                   // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
-      
-     myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
+    myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
       // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')
        
        // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')

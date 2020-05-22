@@ -16,10 +16,10 @@
 //import java.util.Map;
  //@NonCPS
 import groovy.json.*
- def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 jsonSlurper = new JsonSlurper()
 def data = jsonSlurper.parse(new File(filename))
-//println(data.jenkinfile.Gitcredential.branch")
+println(data.jenkinfile.Gitcredential.branch)
   //def object = "data.jenkinfile.Gitcredential.branch"
 
 

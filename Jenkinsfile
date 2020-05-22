@@ -40,7 +40,7 @@ data = "jsonSlurper.parse(new File(filename))"
                 // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
-      println(data.jenkinfile.Gitcredential.branch)
+      
      myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')
       // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')
        
@@ -98,7 +98,7 @@ data = "jsonSlurper.parse(new File(filename))"
    {
     steps{
      
-println(parsedJson)
+println(data)
     }
    }
    

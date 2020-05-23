@@ -23,8 +23,8 @@ pipeline
  environment
  {
 def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-jsonSlurper = 'new JsonSlurper()'
-def data = 'jsonSlurper.parse(new File(filename))'
+jsonSlurper = new JsonSlurper()
+def data = jsonSlurper.parse(new File(filename))
 //println(data)
  }
    stages {

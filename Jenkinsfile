@@ -26,7 +26,7 @@ pipeline
 //jsonSlurper = new JsonSlurper()
 //def data = jsonSlurper.parse(new File(filename))
 //println(data)
- }
+ //}
    stages {
    stage('checkout')
     steps {

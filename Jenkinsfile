@@ -20,11 +20,11 @@ import groovy.json.*
 pipeline
 {
  agent any
- environment
- {
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-jsonSlurper = new JsonSlurper()
-def data = jsonSlurper.parse(new File(filename))
+ //environment
+ //{
+//def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+//jsonSlurper = new JsonSlurper()
+//def data = jsonSlurper.parse(new File(filename))
 //println(data)
  }
    stages {
@@ -57,6 +57,13 @@ def data = jsonSlurper.parse(new File(filename))
       }
     }
     
+ stage('Junit')
+   {
+    steps{
+     junit()
+    }
+   }
+   
      stage ('Docker build')
     {
       steps {
@@ -86,14 +93,7 @@ def data = jsonSlurper.parse(new File(filename))
       }
     }
    
-   stage('one')
-   {
-    steps{
-     
-println(data)
-    }
-   }
-   
+  
    
     
   }

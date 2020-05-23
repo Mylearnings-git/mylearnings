@@ -28,7 +28,7 @@ pipeline
 //println(data)
  //}
    stages {
-   stage('checkout')
+    stage('checkout') {
     steps {
                    // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)

@@ -60,7 +60,7 @@ pipeline
  stage('Junit')
    {
     steps{
-     junit()
+     test()
     }
    }
    

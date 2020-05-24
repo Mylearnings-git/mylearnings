@@ -75,7 +75,7 @@ pipeline
     )]) {
         
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      Dockbuild('restapi', 'yuvarajkumar')
+      Dockbuild('restapi', 'yuvarajkumar', 'myrestapiapp')
         }
       }
     }

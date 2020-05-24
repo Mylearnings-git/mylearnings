@@ -87,7 +87,7 @@ public class HotelController extends AbstractRestHandler {
     }
 
     //todo: @ApiImplicitParams, @ApiResponses
-   /*
+   
     @RequestMapping(value = "/{id}",
             method = RequestMethod.DELETE,
             produces = {"application/json", "application/xml"})
@@ -99,5 +99,5 @@ public class HotelController extends AbstractRestHandler {
         checkResourceFound(this.hotelService.getHotel(id));
         this.hotelService.deleteHotel(id);
     }
-     */
+     
 }

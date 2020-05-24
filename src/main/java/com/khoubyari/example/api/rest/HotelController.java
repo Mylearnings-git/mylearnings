@@ -33,8 +33,8 @@ public class HotelController extends AbstractRestHandler {
             consumes = {"application/json", "application/xml"},
             produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.CREATED)
-   //@ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
-   @ApiOperation(value = "remove a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
+   @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
+   //@ApiOperation(value = "remove a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     public void createHotel(@RequestBody Hotel hotel,
                                  HttpServletRequest request, HttpServletResponse response) {
         Hotel createdHotel = this.hotelService.createHotel(hotel);

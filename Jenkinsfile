@@ -27,7 +27,7 @@ pipeline
     stage ('deployment')
     {
       steps {
-       println "datas ==> ${datas}"
+       //println "datas ==> ${datas}"
        assert datas.Gitcred.branch == "master"
       // assert datas.branch == "master"
       }

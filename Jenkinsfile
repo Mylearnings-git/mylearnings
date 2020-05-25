@@ -28,7 +28,7 @@ pipeline
     {
       steps {
        println "datas ==> ${datas}"
-       echo "${datas.Gitcred.branch}"
+       println(datas)
       // assert datas.branch == "master"
       }
     }

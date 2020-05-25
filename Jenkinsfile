@@ -20,14 +20,16 @@ pipeline
 //def data = jsonSlurper.parse(new File(filename))
 //println(data)
  //}
- stage ('deployment')
+ 
+   
+   stages {
+    
+    stage ('deployment')
     {
       steps {
        println "${datas}"
       }
     }
-   
-   stages {
     stage('checkout') {
     steps {
                         // println(data.jenkinfile.Gitcred.url)

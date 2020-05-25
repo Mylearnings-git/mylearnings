@@ -1,10 +1,11 @@
 @Library('Mysharedlib') _
 import groovy.json.*
-
+import hudson.model.*
+def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
 pipeline
 {
  agent any
- def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
+ 
  //environment
  //{
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'

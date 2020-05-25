@@ -16,22 +16,7 @@ import groovy.json.*
  pipeline
 {
  agent any
- //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
- //environment
- //{
-  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
-  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
-
- // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-  //def data = jsonSlurper.parse(new File(filename))
- //}
-//def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-//jsonSlurper = new JsonSlurper()
-//def data = jsonSlurper.parse(new File(filename))
-//println(data)
- //}
- 
-   
+    
    stages {
     
     stage ('deployment')
@@ -97,7 +82,7 @@ import groovy.json.*
     )]) {
         
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      Dockbuild('restapi', 'yuvarajkumar', 'myrestapiapp')
+      Dockbuild(valuesYaml.dockerrepo, valuesYaml.dockeruser, valuesYaml.dockerimg)
         }
       }
     }
@@ -110,7 +95,7 @@ import groovy.json.*
  credentialsId: 'e261da0d-0895-4f7d-953f-28dbf1f27f1c', 
  secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
  {
-        kub('restapi1', 'us-west-2')
+        kub(valuesYaml.kubcluster, valuesYaml.kubloc)
       }
       }
     }

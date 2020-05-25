@@ -3,52 +3,28 @@ import org.yaml.snakeyaml.Yaml
 //import jenkins.model.*
 //jenkins = Jenkins.instance
 import groovy.json.*
-//jsonSlurper = new JsonSlurper()
-//@NonCPS
-//import hudson.model.*
-//def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
-//def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
-//def config = yaml.load(file.text)
  def loadValuesYaml(){
-  def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
-  return valuesYaml;
+ def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
+ return valuesYaml;
  }
  pipeline
 {
  agent any
-    
-   stages {
-    
+    stages {
     stage ('deployment')
     {
       steps {
-       script {
+       //script {
         valuesYaml = loadValuesYaml()
           println valuesYaml.getClass()
-       //println "data ==> ${datas}"
-       //println(datas[0].value)
-      // println("$datas.name}")
-       //println "${datas.branch}"
-       //assert datas.Gitcred.branch == "master"
-      // assert datas.branch == "master"
-      }
+          //   }
     }
     }
     stage('checkout') {
     steps {
      echo valuesYaml.repo
-                        // println(data.jenkinfile.Gitcred.url)
-         //def data = new JsonSlurperClassic().parseText(projects)
-      //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
-   myDeliveryPipeline(branch: valuesYaml.branch, scmUrl: valuesYaml.repo)
-      // myDeliveryPipeline(branch: 'master', scmUrl: 'GlobalVars.url')
-       
-       // myDeliveryPipeline('master', 'https://github.com/Mylearnings-git/mylearnings.git')
-      
-     //
-     //
-     //Println(data)
-    }
+            myDeliveryPipeline(branch: valuesYaml.branch, scmUrl: valuesYaml.repo)
+         }
     }
     stage('mvn build')
     {

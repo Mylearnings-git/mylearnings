@@ -2,11 +2,11 @@
 import groovy.json.*
 jsonSlurper = new JsonSlurper()
 import hudson.model.*
-//import groovy.json.JsonSlurperClassic
-//def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
-//def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-//jsonSlurper = new JsonSlurperClassic()
-//def data = jsonSlurper.parse(new File(filename))
+ import groovy.json.JsonSlurperClassic
+ //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
+ def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+ jsonSlurper = new JsonSlurperClassic()
+ def data = jsonSlurper.parse(new File(filename))
 //println(data)
 pipeline
 {
@@ -14,9 +14,9 @@ pipeline
  
  environment
  {
-  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
-  def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-  def data = jsonSlurper.parse(new File(filename))
+  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
+ // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+  //def data = jsonSlurper.parse(new File(filename))
  }
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 //jsonSlurper = new JsonSlurper()

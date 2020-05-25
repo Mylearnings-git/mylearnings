@@ -9,18 +9,22 @@ import groovy.json.*
 //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 //def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
 //def config = yaml.load(file.text)
+ def loadValuesYaml(){
+  def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
+  return valuesYaml;
+ 
  pipeline
 {
  agent any
  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
- environment
- {
-  def datas = readYaml file: "./var/lib/jenkins/workspace/mysharedlib/config.yml"
+ //environment
+ //{
+  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
   //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
   //def data = jsonSlurper.parse(new File(filename))
- }
+ //}
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 //jsonSlurper = new JsonSlurper()
 //def data = jsonSlurper.parse(new File(filename))
@@ -33,7 +37,10 @@ import groovy.json.*
     stage ('deployment')
     {
       steps {
-       println "data ==> ${datas}"
+       script {
+        valuesYaml = loadValuesYaml()
+          println valuesYaml.getClass()
+       //println "data ==> ${datas}"
        //println(datas[0].value)
       // println("$datas.name}")
        //println "${datas.branch}"
@@ -41,8 +48,10 @@ import groovy.json.*
       // assert datas.branch == "master"
       }
     }
+    }
     stage('checkout') {
     steps {
+     echo valuesYaml.name
                         // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')

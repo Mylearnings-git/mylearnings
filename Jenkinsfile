@@ -12,14 +12,15 @@ import groovy.json.*
  pipeline
 {
  agent any
- def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
- //environment
- //{
+ //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
+ environment
+ {
+  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
   //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
   //def data = jsonSlurper.parse(new File(filename))
- //}
+ }
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 //jsonSlurper = new JsonSlurper()
 //def data = jsonSlurper.parse(new File(filename))

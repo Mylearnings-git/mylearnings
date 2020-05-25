@@ -8,6 +8,7 @@ import groovy.json.*
   def valuesYaml = readYaml (file: 'config.yml')
  return valuesYaml;
  }
+valuesYaml = loadValuesYaml()
  pipeline
 {
  agent any

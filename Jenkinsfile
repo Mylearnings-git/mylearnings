@@ -20,6 +20,13 @@ pipeline
 //def data = jsonSlurper.parse(new File(filename))
 //println(data)
  //}
+ stage ('deployment')
+    {
+      steps {
+       println "${datas}"
+      }
+    }
+   
    stages {
     stage('checkout') {
     steps {
@@ -86,13 +93,7 @@ pipeline
       }
     }
    
-  stage ('deployment')
-    {
-      steps {
-       echo "${datas.branch}"
-      }
-    }
-   
+  
     
   }
 }

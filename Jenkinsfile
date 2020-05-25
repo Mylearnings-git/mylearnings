@@ -1,6 +1,7 @@
 @Library('Mysharedlib') _
 import groovy.json.*
 jsonSlurper = new JsonSlurper()
+@NonCPS
 import hudson.model.*
  import groovy.json.JsonSlurperClassic
  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"

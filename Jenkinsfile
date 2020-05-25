@@ -51,7 +51,7 @@ import groovy.json.*
     }
     stage('checkout') {
     steps {
-     echo valuesYaml.name
+     echo valuesYaml.repo
                         // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')

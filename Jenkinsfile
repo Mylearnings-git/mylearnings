@@ -15,7 +15,7 @@ pipeline
  {
   def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
   def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-  jsonSlurper = new JsonSlurper()
+  jsonSlurper = "new JsonSlurper()"
   def data = jsonSlurper.parse(new File(filename))
  }
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'

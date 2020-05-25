@@ -30,7 +30,7 @@ import hudson.model.*
     {
       steps {
        println "data ==> ${datas}"
-       println(datas.name)
+       println(datas[0].value)
       // println("$datas.name}")
        //println "${datas.branch}"
        //assert datas.Gitcred.branch == "master"

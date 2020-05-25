@@ -86,7 +86,7 @@ pipeline
       }
     }
    
-  stage ('Kuberneted deployment')
+  stage ('deployment')
     {
       steps {
        println(datas)

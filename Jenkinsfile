@@ -1,11 +1,6 @@
 @Library('Mysharedlib') _
-import org.yaml.snakeyaml.Yaml
-//import jenkins.model.*
-//jenkins = Jenkins.instance
-import groovy.json.*
- def loadValuesYaml(){
- //def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
-  def valuesYaml = readYaml (file: 'config.yml')
+def loadValuesYaml(){
+def valuesYaml = readYaml (file: 'config.yml')
  return valuesYaml;
  }
  pipeline

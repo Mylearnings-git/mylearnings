@@ -48,7 +48,7 @@ def valuesYaml = readYaml (file: 'config.yml')
       steps {
        
         withCredentials([usernamePassword(
-            credentialsId: "Docker",
+            credentialsId: valuesYaml.dockercred,
             usernameVariable: "Username",
             passwordVariable: "Password"
     )]) {
@@ -64,7 +64,7 @@ def valuesYaml = readYaml (file: 'config.yml')
         withCredentials([[
  $class: 'AmazonWebServicesCredentialsBinding', 
  accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
- credentialsId: 'e261da0d-0895-4f7d-953f-28dbf1f27f1c', 
+ credentialsId: valuesYaml.kubcred, 
  secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
  {
         kub(valuesYaml.kubcluster, valuesYaml.kubloc)

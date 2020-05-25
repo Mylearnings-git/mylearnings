@@ -27,7 +27,7 @@ pipeline
     stage ('deployment')
     {
       steps {
-       println "${datas}"
+       println "${datas.branch}"
       }
     }
     stage('checkout') {

@@ -9,7 +9,7 @@ import hudson.model.*
  
  environment
  {
-  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
+  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
   //def data = jsonSlurper.parse(new File(filename))
  }
@@ -26,6 +26,7 @@ import hudson.model.*
     {
       steps {
        println "datas ==> ${datas}"
+       println("$datas.name}")
        //println "${datas.branch}"
        //assert datas.Gitcred.branch == "master"
       // assert datas.branch == "master"

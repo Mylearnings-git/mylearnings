@@ -1,11 +1,11 @@
 @Library('Mysharedlib') _
 import groovy.json.*
 import hudson.model.*
- import groovy.json.JsonSlurperClassic
+import groovy.json.JsonSlurperClassic
 //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
-def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
-jsonSlurper = new JsonSlurperClassic()
-def data = jsonSlurper.parse(new File(filename))
+//def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
+//jsonSlurper = new JsonSlurperClassic()
+//def data = jsonSlurper.parse(new File(filename))
 //println(data)
 pipeline
 {
@@ -21,6 +21,7 @@ pipeline
    stages {
     stage('checkout') {
     steps {
+     def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
                    // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')

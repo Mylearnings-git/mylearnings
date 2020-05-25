@@ -1,5 +1,6 @@
 @Library('Mysharedlib') _
 import groovy.json.*
+def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
 pipeline
 {
  agent any

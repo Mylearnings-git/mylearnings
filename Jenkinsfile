@@ -4,19 +4,19 @@ import groovy.json.*
 //jsonSlurper = new JsonSlurper()
 //@NonCPS
 import hudson.model.*
-//def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
+def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
 //def config = yaml.load(file.text)
  pipeline
 {
  agent any
  
- environment
- {
-  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
+ //environment
+ //{
+  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
   //def data = jsonSlurper.parse(new File(filename))
- }
+ //}
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 //jsonSlurper = new JsonSlurper()
 //def data = jsonSlurper.parse(new File(filename))
@@ -30,7 +30,7 @@ import hudson.model.*
     {
       steps {
        println "data ==> ${datas}"
-       println(datas[0].value)
+       //println(datas[0].value)
       // println("$datas.name}")
        //println "${datas.branch}"
        //assert datas.Gitcred.branch == "master"

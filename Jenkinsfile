@@ -8,20 +8,19 @@ import groovy.json.*
   def valuesYaml = readYaml (file: 'config.yml')
  return valuesYaml;
  }
-valuesYaml = loadValuesYaml()
  pipeline
 {
  agent any
     stages {
-    //stage ('deployment')
-    //{
-      //steps {
-       //script {
-        //valuesYaml = loadValuesYaml()
-          //println valuesYaml.getClass()
-           //}
-   // }
-    //}
+    stage ('deployment')
+    {
+     steps {
+     script {
+     valuesYaml = loadValuesYaml()
+     println valuesYaml.getClass()
+     }
+    }
+  }
     stage('checkout') {
     steps {
      echo valuesYaml.repo

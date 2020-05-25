@@ -28,7 +28,7 @@ pipeline
     {
       steps {
        println "datas ==> ${datas}"
-       println "datas.branch"
+       println "${branch}"
       }
     }
     stage('checkout') {

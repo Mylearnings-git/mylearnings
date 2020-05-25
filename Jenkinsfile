@@ -28,7 +28,7 @@ pipeline
     {
       steps {
        println "datas ==> ${datas}"
-       datas.Gitcred
+       println(datas.Gitcred)
        //assert datas.Gitcred.branch == "master"
       // assert datas.branch == "master"
       }

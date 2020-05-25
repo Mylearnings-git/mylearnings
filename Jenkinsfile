@@ -27,7 +27,8 @@ pipeline
     stage ('deployment')
     {
       steps {
-       println "${datas.branch}"
+       println "datas ==> ${datas}"
+       println "datas.branch"
       }
     }
     stage('checkout') {

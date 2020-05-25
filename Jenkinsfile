@@ -9,7 +9,9 @@ import hudson.model.*
  
  environment
  {
-  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
+  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
+def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
+def config = yaml.load(file.text)
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
   //def data = jsonSlurper.parse(new File(filename))
  }
@@ -25,8 +27,8 @@ import hudson.model.*
     stage ('deployment')
     {
       steps {
-       println "datas ==> ${datas}"
-       println("$datas.name}")
+       println "datas ==> ${config}"
+      // println("$datas.name}")
        //println "${datas.branch}"
        //assert datas.Gitcred.branch == "master"
       // assert datas.branch == "master"

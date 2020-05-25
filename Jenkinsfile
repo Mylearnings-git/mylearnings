@@ -12,15 +12,15 @@ import groovy.json.*
 {
  agent any
     stages {
-    stage ('deployment')
-    {
-      steps {
-       script {
-        valuesYaml = loadValuesYaml()
-          println valuesYaml.getClass()
-           }
-    }
-    }
+    //stage ('deployment')
+    //{
+      //steps {
+       //script {
+        //valuesYaml = loadValuesYaml()
+          //println valuesYaml.getClass()
+           //}
+   // }
+    //}
     stage('checkout') {
     steps {
      echo valuesYaml.repo

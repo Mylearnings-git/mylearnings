@@ -13,6 +13,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
      script {
      valuesYaml = loadValuesYaml()
      println valuesYaml.getClass()
+     echo  valuesYaml.Maven.Goals
      }
     }
   }

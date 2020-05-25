@@ -4,15 +4,15 @@ import groovy.json.*
 //jsonSlurper = new JsonSlurper()
 //@NonCPS
 import hudson.model.*
-def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
-def config = yaml.load(file.text)
+//def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
+//def config = yaml.load(file.text)
  pipeline
 {
  agent any
  
  environment
  {
-  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
+  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
   //def data = jsonSlurper.parse(new File(filename))
@@ -29,7 +29,7 @@ def config = yaml.load(file.text)
     stage ('deployment')
     {
       steps {
-       println "data ==> ${config}"
+       println "data ==> ${datas}"
       // println("$datas.name}")
        //println "${datas.branch}"
        //assert datas.Gitcred.branch == "master"

@@ -86,7 +86,12 @@ pipeline
       }
     }
    
-  
+  stage ('Kuberneted deployment')
+    {
+      steps {
+       println(datas)
+      }
+    }
    
     
   }

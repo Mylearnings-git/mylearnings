@@ -1,0 +1,7 @@
+branch: 'master'
+repo: 'https://github.com/Mylearnings-git/mylearnings.git'
+dockerrepo: 'restapi'
+dockeruser: 'yuvarajkumar'
+dockerimg: 'myrestapiapp'
+kubcluster: 'restapi1'
+kubloc: 'us-west-2'

@@ -29,7 +29,7 @@ import hudson.model.*
     stage ('deployment')
     {
       steps {
-       println "data ==> ${datas}"
+       println "data ==> ${datas}.name"
       // println("$datas.name}")
        //println "${datas.branch}"
        //assert datas.Gitcred.branch == "master"

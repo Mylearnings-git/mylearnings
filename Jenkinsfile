@@ -11,8 +11,10 @@ pipeline
 {
  agent any
  
- //environment
- //{
+ environment
+ {
+  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
+ }
 //def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'
 //jsonSlurper = new JsonSlurper()
 //def data = jsonSlurper.parse(new File(filename))
@@ -21,8 +23,7 @@ pipeline
    stages {
     stage('checkout') {
     steps {
-     def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/source.yml"
-                   // println(data.jenkinfile.Gitcred.url)
+                        // println(data.jenkinfile.Gitcred.url)
          //def data = new JsonSlurperClassic().parseText(projects)
       //myDeliveryPipeline(branch: 'data.jenkinfile.Gitcredential.branch', scmUrl: 'data.jenkinfile.Gitcredential.url')
     myDeliveryPipeline(branch: 'master', scmUrl: 'https://github.com/Mylearnings-git/mylearnings.git')

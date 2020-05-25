@@ -4,7 +4,8 @@ import org.yaml.snakeyaml.Yaml
 //jenkins = Jenkins.instance
 import groovy.json.*
  def loadValuesYaml(){
- def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
+ //def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
+  def valuesYaml = readYaml (file: 'config.yml')
  return valuesYaml;
  }
  pipeline

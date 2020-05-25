@@ -6,13 +6,13 @@ import groovy.json.*
 //jsonSlurper = new JsonSlurper()
 //@NonCPS
 //import hudson.model.*
-def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
+//def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 //def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
 //def config = yaml.load(file.text)
  pipeline
 {
  agent any
- 
+ def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
  //environment
  //{
   //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"

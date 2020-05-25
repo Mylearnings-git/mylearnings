@@ -1,7 +1,7 @@
 @Library('Mysharedlib') _
 import groovy.json.*
-jsonSlurper = new JsonSlurper()
-@NonCPS
+//jsonSlurper = new JsonSlurper()
+//@NonCPS
 import hudson.model.*
  pipeline
 {

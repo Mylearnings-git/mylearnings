@@ -28,7 +28,7 @@ pipeline
     {
       steps {
        println "datas ==> ${datas}"
-       println "${branch}"
+       assert datas.branch == 'master'
       }
     }
     stage('checkout') {

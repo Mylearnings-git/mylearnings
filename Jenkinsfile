@@ -12,7 +12,7 @@ import groovy.json.*
  def loadValuesYaml(){
   def valuesYaml = readYaml (file: '/var/lib/jenkins/workspace/mysharedlib/config.yml')
   return valuesYaml;
- 
+ }
  pipeline
 {
  agent any

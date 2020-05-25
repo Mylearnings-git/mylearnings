@@ -71,8 +71,6 @@ def valuesYaml = readYaml (file: 'config.yml')
       }
       }
     }
-   
-  
     
   }
 }

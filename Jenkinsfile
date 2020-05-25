@@ -1,6 +1,6 @@
 @Library('Mysharedlib') _
 def loadValuesYaml(){
-def valuesYaml = readYaml (file: 'config.yml')
+def valuesYaml = readYaml (file: 'config1.yml')
  return valuesYaml;
  }
  pipeline
@@ -19,7 +19,7 @@ def valuesYaml = readYaml (file: 'config.yml')
     stage('checkout') {
     steps {
      echo valuesYaml.repo
-            myDeliveryPipeline(branch: valuesYaml.branch, scmUrl: valuesYaml.repo)
+            myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
          }
     }
     stage('mvn build')
@@ -48,13 +48,13 @@ def valuesYaml = readYaml (file: 'config.yml')
       steps {
        
         withCredentials([usernamePassword(
-            credentialsId: valuesYaml.dockercred,
+            credentialsId: valuesYaml.CredId.dockercred,
             usernameVariable: "Username",
             passwordVariable: "Password"
     )]) {
         
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      Dockbuild(valuesYaml.dockerrepo, valuesYaml.dockeruser, valuesYaml.dockerimg)
+      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg)
         }
       }
     }
@@ -64,10 +64,10 @@ def valuesYaml = readYaml (file: 'config.yml')
         withCredentials([[
  $class: 'AmazonWebServicesCredentialsBinding', 
  accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
- credentialsId: valuesYaml.kubcred, 
+ credentialsId: valuesYaml.CredId.kubcred, 
  secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
  {
-        kub(valuesYaml.kubcluster, valuesYaml.kubloc)
+        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc)
       }
       }
     }

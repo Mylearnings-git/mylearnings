@@ -1,11 +1,11 @@
 @Library('Mysharedlib') _
 import org.yaml.snakeyaml.Yaml
-import jenkins.model.*
-jenkins = Jenkins.instance
+//import jenkins.model.*
+//jenkins = Jenkins.instance
 import groovy.json.*
 //jsonSlurper = new JsonSlurper()
 //@NonCPS
-import hudson.model.*
+//import hudson.model.*
 def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 //def file = new File('/var/lib/jenkins/workspace/mysharedlib/config.yml')
 //def config = yaml.load(file.text)

@@ -89,7 +89,7 @@ pipeline
   stage ('deployment')
     {
       steps {
-       println(datas.branch)
+       echo "${datas.branch}"
       }
     }
    

@@ -14,10 +14,10 @@ import groovy.json.*
     stage ('deployment')
     {
       steps {
-       //script {
+       script {
         valuesYaml = loadValuesYaml()
           println valuesYaml.getClass()
-          //   }
+           }
     }
     }
     stage('checkout') {

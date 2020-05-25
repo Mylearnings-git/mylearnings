@@ -15,7 +15,7 @@ import groovy.json.*
  //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
  environment
  {
-  def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
+  def datas = readYaml file: "./var/lib/jenkins/workspace/mysharedlib/config.yml"
   //def datas = readYaml file: "/var/lib/jenkins/workspace/mysharedlib/config.yml"
 
  // def filename = '/var/lib/jenkins/workspace/mysharedlib/Projects.json'

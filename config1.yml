@@ -1,0 +1,13 @@
+Gitdetails:
+   branch: 'master'
+   repo: 'https://github.com/Mylearnings-git/mylearnings.git'
+Dockerdetails:
+   dockerrepo: 'restapi'
+   dockeruser: 'yuvarajkumar'
+   dockerimg: 'myrestapiapp'
+Kubdetails:
+   kubcluster: 'restapi1'
+   kubloc: 'us-west-2'
+CredId:
+   dockercred: 'Docker'
+   kubcred: 'e261da0d-0895-4f7d-953f-28dbf1f27f1c'

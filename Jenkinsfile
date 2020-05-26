@@ -1,7 +1,7 @@
 @Library('Mysharedlib') _
 def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
- return valuesYaml;
+ //return valuesYaml;
  }
  pipeline
 {
@@ -20,7 +20,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
     stage('checkout') {
     steps {
      //echo valuesYaml.Maven.Goals(0)
-     echo valuesYaml.repo
+     echo valuesYaml.Gitdetails.branch
             myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
          }
     }

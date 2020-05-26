@@ -12,14 +12,14 @@ def valuesYaml = readYaml (file: 'config1.yml')
      steps {
      script {
      valuesYaml = loadValuesYaml()
-     println valuesYaml.getClass()
+     //println valuesYaml.getClass()
      
      }
     }
   }
     stage('checkout') {
     steps {
-     echo valuesYaml.Maven.Goals(0)
+     //echo valuesYaml.Maven.Goals(0)
      echo valuesYaml.repo
             myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
          }

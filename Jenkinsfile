@@ -1,7 +1,7 @@
 @Library('Mysharedlib') _
 def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
- //return valuesYaml;
+ return valuesYaml;
  }
  pipeline
 {

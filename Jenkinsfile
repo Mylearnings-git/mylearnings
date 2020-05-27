@@ -33,8 +33,17 @@ def valuesYaml = readYaml (file: 'config1.yml')
     stage ('sonar analysis')
     {
       steps {
-        
-        sonar()
+         script {
+
+                          def scannerHome = tool 'Sonar_Scanner';
+
+                          withSonarQubeEnv("Mysonar") {
+
+                          sh "${tool("Mysonarscanner")}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+
+                                       }
+
+                               }
       }
     }
     

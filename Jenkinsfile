@@ -35,7 +35,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
       steps {
          script {
 
-                          def scannerHome = tool 'Sonar_Scanner';
+                          def scannerHome = tool 'Mysonarscanner';
 
                           withSonarQubeEnv("Mysonar") {
 

@@ -4,3 +4,4 @@ def scannerHome = tool 'tool';
 
                           sh "${tool("tool")}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
 }
+}

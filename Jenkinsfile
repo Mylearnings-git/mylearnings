@@ -40,12 +40,13 @@ def valuesYaml = readYaml (file: 'config1.yml')
     stage ('sonar analysis')
     {
       steps {
+       
+                           echo valuesYaml.Toolname.tool
+                           echo valuesYaml.Toolname.envname
         
      sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname)
                           
 
-                           echo valuesYaml.Toolname.tool
-                           echo valuesYaml.Toolname.envname
 
                                    }
     }

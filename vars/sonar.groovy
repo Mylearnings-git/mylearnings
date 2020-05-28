@@ -1,5 +1,5 @@
 def call(String toolname, String envname) {
-  def scannerHome = tool '${toolname}'
+  def scannerHome = tool 'Mysonarscanner'
   
   withSonarQubeEnv("${envname}") {
 

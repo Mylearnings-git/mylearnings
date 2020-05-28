@@ -3,6 +3,7 @@ def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
  return valuesYaml;
  }
+
  pipeline
 {
  agent any
@@ -39,15 +40,11 @@ def valuesYaml = readYaml (file: 'config1.yml')
     stage ('sonar analysis')
     {
       steps {
-         script {
+        
+     sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname)
+                          
 
-                          def scannerHome = tool 'Mysonarscanner';
-
-                          withSonarQubeEnv("Mysonar") {
-
-                          sh "${tool("Mysonarscanner")}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-
-                                       }
+                                       
 
                                }
       }

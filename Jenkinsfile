@@ -46,8 +46,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
 
                                        
 
-                               }
-      }
+                                   }
     }
     
  stage('Junit')

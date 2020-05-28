@@ -11,5 +11,9 @@ Kubdetails:
 CredId:
    dockercred: 'Docker'
    kubcred: 'AWS'
+Toolname:
+   tool: 'Mysonarscanner'
+   envname: 'Mysonar'
+   
 
       

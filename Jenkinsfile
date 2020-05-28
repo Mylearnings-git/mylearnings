@@ -20,8 +20,12 @@ def valuesYaml = readYaml (file: 'config1.yml')
     stage('checkout') {
     steps {
      //echo valuesYaml.Maven.Goals(0)
-     echo valuesYaml.Gitdetails.branch
+     when {
+                branch 'release'
+                //environment name: 'DEPLOY_TO', value: 'production'
+          echo valuesYaml.Gitdetails.branch
             myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
+     }
          }
     }
     stage('mvn build')

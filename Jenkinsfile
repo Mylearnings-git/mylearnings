@@ -43,6 +43,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
        
                            echo valuesYaml.Toolname.tool
                            echo valuesYaml.Toolname.envname
+       def scannerHome = tool valuesYaml.Toolname.too
         
      sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname)
                           

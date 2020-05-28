@@ -1,7 +1,7 @@
-def call(String tool, String envname) {
-  def scannerHome = tool '${tool}';
+def call(String toolname, String envname) {
+  def scannerHome = tool '${toolname}';
   withSonarQubeEnv("${envname}") {
 
-                            sh "${tool("${tool}")}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+                            sh "${tool("${toolname}")}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
 }
 }

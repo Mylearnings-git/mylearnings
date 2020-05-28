@@ -1,3 +1,6 @@
 def call() {
-sh 'mvn sonar:sonar'
+def scannerHome = tool 'Mysonarscanner';
+                          withSonarQubeEnv("Mysonar") {
+
+                          sh "${tool("Mysonarscanner")}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
 }

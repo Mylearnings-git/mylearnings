@@ -1,5 +1,5 @@
-def call(String class, String execPattern, String classPattern, String sourcePattern, String exclusionPattern) {
-step([$class: ${class},
+def call(String class1, String execPattern, String classPattern, String sourcePattern, String exclusionPattern) {
+step([$class: ${class1},
            execPattern: ${execPattern},
            classPattern: ${classPattern},
            sourcePattern: ${sourcePattern},

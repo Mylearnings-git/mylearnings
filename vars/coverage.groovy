@@ -2,7 +2,7 @@ def call(String class, String execPattern, String classPattern, String sourcePat
 step([$class: ${class},
             execPattern: ${execPattern},
            classPattern: ${classPattern},
-           sourcePattern}: ${sourcePattern},
+           sourcePattern: ${sourcePattern},
            exclusionPattern: ${exclusionPattern}
            ])
 }           

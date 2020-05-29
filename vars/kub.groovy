@@ -1,4 +1,4 @@
- def call(String cluster, String region, String kubecred) {
+ def call(String cluster, String region) {
 //withCredentials([[
 // $class: 'AmazonWebServicesCredentialsBinding', 
 // accessKeyVariable: 'AWS_ACCESS_KEY_ID', 

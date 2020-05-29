@@ -1,12 +1,9 @@
 @Library('Mysharedlib') _
 def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
-
  return valuesYaml;
-
  }
 def codecoverageYaml()  {
- 
  def coverageyaml = readYaml (file: 'coverage.yml')
     return coverageyaml;
 }
@@ -21,19 +18,15 @@ def codecoverageYaml()  {
      valuesYaml = loadValuesYaml()
      coverageyaml = codecoverageYaml()
      //println valuesYaml.getClass()
-     
-     }
+         }
     }
   }
     stage('checkout') {
         steps {
      //echo valuesYaml.Maven.Goals(0)
-     
-     echo valuesYaml.Gitdetails.branch
-            myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
-     
       
-         }
+            myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
+                  }
     }
     stage('mvn build')
     {
@@ -65,13 +58,8 @@ def codecoverageYaml()  {
      
      stage('Publish Test Coverage Report') {
    steps {
-    echo coverageyaml.Coverage.execPattern
-      step([$class: coverageyaml.Coverage.class,
-            execPattern: coverageyaml.Coverage.execPattern,
-           classPattern: coverageyaml.Coverage.classPattern,
-           sourcePattern: coverageyaml.Coverage.sourcePattern,
-           exclusionPattern: coverageyaml.Coverage.exclusionPattern
-           ])
+    coverage(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
+          
           }
       }
    
@@ -79,30 +67,20 @@ def codecoverageYaml()  {
     {
       steps {
        
-        withCredentials([usernamePassword(
-            credentialsId: valuesYaml.CredId.dockercred,
-            usernameVariable: "Username",
-            passwordVariable: "Password"
-    )]) {
         
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg)
-        }
+      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg, valuesYaml.CredId.dockercred)
+        
       }
     }
     stage ('Kuberneted deployment')
     {
       steps {
-        withCredentials([[
- $class: 'AmazonWebServicesCredentialsBinding', 
- accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
- credentialsId: valuesYaml.CredId.kubcred, 
- secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
- {
-        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc)
+        
+        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc, valuesYaml.CredId.kubcred)
       }
       }
-    }
+    
     
   }
 }

@@ -1,11 +1,15 @@
 @Library('Mysharedlib') _
 def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
-def coverageyaml = readYaml (file: 'coverage.yml')
- return valuesYaml;
- return coverageyaml;
- }
 
+ return valuesYaml;
+
+ }
+def codecoverageYaml()  {
+ 
+ def coverageyaml = readYaml (file: 'coverage.yml')
+    return coverageyaml;
+}
  pipeline
 {
  agent any
@@ -15,17 +19,14 @@ def coverageyaml = readYaml (file: 'coverage.yml')
      steps {
      script {
      valuesYaml = loadValuesYaml()
-     coverageyaml = loadValuesYaml()
+     coverageyaml = codecoverageyaml()
      //println valuesYaml.getClass()
      
      }
     }
   }
     stage('checkout') {
-     when {
-                branch 'release'
-     }
-    steps {
+        steps {
      //echo valuesYaml.Maven.Goals(0)
      
      echo valuesYaml.Gitdetails.branch

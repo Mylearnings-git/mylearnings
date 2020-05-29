@@ -58,6 +58,7 @@ def codecoverageYaml()  {
      
      stage('Publish Test Coverage Report') {
    steps {
+    echo coverageyaml.Coverage.class
     coverage(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
           
           }

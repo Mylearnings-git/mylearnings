@@ -73,7 +73,7 @@ def codecoverageYaml()  {
   //withCredentials([usernamePassword(
    // credentialsId: valuesYaml.CredId.dockercred,
     ////        usernameVariable: "Username",
-            passwordVariable: "Password"
+           // passwordVariable: "Password"
    // )]) { 
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
       Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg, valuesYaml.CredId.dockercred)

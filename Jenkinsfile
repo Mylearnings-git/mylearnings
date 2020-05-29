@@ -68,19 +68,29 @@ def codecoverageYaml()  {
       steps {
        
         
+  withCredentials([usernamePassword(
+    credentialsId: valuesYaml.CredId.dockercred,
+            usernameVariable: "Username",
+            passwordVariable: "Password"
+    )]) { 
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg, valuesYaml.CredId.dockercred)
-        
+      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg)
+  }
       }
     }
     stage ('Kuberneted deployment')
     {
       steps {
+       withCredentials([[
+$class: 'AmazonWebServicesCredentialsBinding', 
+ accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+ credentialsId: valuesYaml.CredId.kubcred, 
+        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         
-        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc, valuesYaml.CredId.kubcred)
+        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc)
       }
       }
-    
+    }
     
   }
 }

@@ -1,7 +1,9 @@
 @Library('Mysharedlib') _
 def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
+def coverageyaml = readYaml (file: 'coverage.yml')
  return valuesYaml;
+ return coverageyaml;
  }
 
  pipeline
@@ -13,6 +15,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
      steps {
      script {
      valuesYaml = loadValuesYaml()
+     coverageyaml = loadValuesYaml()
      //println valuesYaml.getClass()
      
      }
@@ -61,11 +64,12 @@ def valuesYaml = readYaml (file: 'config1.yml')
      
      stage('Publish Test Coverage Report') {
    steps {
-      step([$class: 'JacocoPublisher', 
-           execPattern: '**/target/*.exec',
-           classPattern: '**/target/classes',
-           sourcePattern: 'src/main/java',
-           exclusionPattern: 'src/test*'
+    echo coverageyaml.Coverage.execPattern
+      step([$class: coverageyaml.Coverage.class,
+            execPattern: coverageyaml.Coverage.execPattern,
+           classPattern: coverageyaml.Coverage.classPattern,
+           sourcePattern: coverageyaml.Coverage.sourcePattern,
+           exclusionPattern: coverageyaml.Coverage.exclusionPattern
            ])
           }
       }

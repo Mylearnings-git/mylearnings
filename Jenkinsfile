@@ -23,8 +23,7 @@ def codecoverageYaml()  {
   }
     stage('checkout') {
         steps {
-     //echo valuesYaml.Maven.Goals(0)
-      
+     
             myDeliveryPipeline(branch: valuesYaml.Gitdetails.branch, scmUrl: valuesYaml.Gitdetails.repo)
                   }
     }
@@ -37,16 +36,10 @@ def codecoverageYaml()  {
     stage ('sonar analysis')
     {
       steps {
-       
-                           echo valuesYaml.Toolname.tool
-                           echo valuesYaml.Toolname.envname
-      
-        
+                        
      sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname)
                           
-
-
-                                   }
+              }
     }
     
  stage('Junit')
@@ -59,9 +52,7 @@ def codecoverageYaml()  {
      stage('Publish Test Coverage Report') {
    steps {
     code(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
-         //echo coverageyaml.Coverage.class
-   // coverage(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
-          
+        
           }
       }
    
@@ -69,29 +60,16 @@ def codecoverageYaml()  {
     {
       steps {
        
-        
-  //withCredentials([usernamePassword(
-   // credentialsId: valuesYaml.CredId.dockercred,
-    ////        usernameVariable: "Username",
-           // passwordVariable: "Password"
-   // )]) { 
-      // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
+     
       Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg, valuesYaml.CredId.dockercred)
- // }
-      }
+       }
     }
     stage ('Kuberneted deployment')
     {
       steps {
-      // withCredentials([[
-//$class: 'AmazonWebServicesCredentialsBinding', 
-// accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
- //credentialsId: valuesYaml.CredId.kubcred, 
-     //   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-        
+     
         kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc, valuesYaml.CredId.kubcred)
-      //}
-      }
+            }
     }
     
   }

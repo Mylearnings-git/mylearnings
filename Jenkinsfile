@@ -58,8 +58,14 @@ def codecoverageYaml()  {
      
      stage('Publish Test Coverage Report') {
    steps {
-    echo coverageyaml.Coverage.class
-    coverage(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
+     step([$class: 'JacocoPublisher', 
+           execPattern: '**/build/jacoco/*.exec',
+           classPattern: '**/target/classes',
+           sourcePattern: 'src/main/java',
+           exclusionPattern: 'src/test*'
+           ])
+    //echo coverageyaml.Coverage.class
+   // coverage(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
           
           }
       }

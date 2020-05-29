@@ -70,14 +70,14 @@ def codecoverageYaml()  {
       steps {
        
         
-  withCredentials([usernamePassword(
-    credentialsId: valuesYaml.CredId.dockercred,
-            usernameVariable: "Username",
+  //withCredentials([usernamePassword(
+   // credentialsId: valuesYaml.CredId.dockercred,
+    ////        usernameVariable: "Username",
             passwordVariable: "Password"
-    )]) { 
+   // )]) { 
       // Dockbuild('data.jenkinfile.Gitcredential.branch', 'data.jenkinfile.Gitcredential.url')
-      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg)
-  }
+      Dockbuild(valuesYaml.Dockerdetails.dockerrepo, valuesYaml.Dockerdetails.dockeruser, valuesYaml.Dockerdetails.dockerimg, valuesYaml.CredId.dockercred)
+ // }
       }
     }
     stage ('Kuberneted deployment')

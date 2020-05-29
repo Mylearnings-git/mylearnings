@@ -62,8 +62,8 @@ def valuesYaml = readYaml (file: 'config1.yml')
      stage('Publish Test Coverage Report') {
    steps {
       step([$class: 'JacocoPublisher', 
-           execPattern: '**/build/jacoco/*.exec',
-           classPattern: '**/build/classes',
+           execPattern: '**/target/*.exec',
+           classPattern: '**/target/classes',
            sourcePattern: 'src/main/java',
            exclusionPattern: 'src/test*'
            ])

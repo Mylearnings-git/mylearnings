@@ -1,4 +1,4 @@
-def call(String project, String hubUser, String image String cred) {
+def call(String project, String hubUser, String image, String cred) {
    sh "docker image build -t ${hubUser}/${project}:${image}-${env.BUILD_NUMBER} ."
   withCredentials([usernamePassword(
     credentialsId: "${cred}",

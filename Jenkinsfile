@@ -83,14 +83,14 @@ def codecoverageYaml()  {
     stage ('Kuberneted deployment')
     {
       steps {
-       withCredentials([[
-$class: 'AmazonWebServicesCredentialsBinding', 
- accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
- credentialsId: valuesYaml.CredId.kubcred, 
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+      // withCredentials([[
+//$class: 'AmazonWebServicesCredentialsBinding', 
+// accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+ //credentialsId: valuesYaml.CredId.kubcred, 
+     //   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         
-        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc)
-      }
+        kub(valuesYaml.Kubdetails.kubcluster, valuesYaml.Kubdetails.kubloc, valuesYaml.CredId.kubcred)
+      //}
       }
     }
     

@@ -19,7 +19,7 @@ def codecoverageYaml()  {
      steps {
      script {
      valuesYaml = loadValuesYaml()
-     coverageyaml = codecoverageyaml()
+     coverageyaml = codecoverageYaml()
      //println valuesYaml.getClass()
      
      }

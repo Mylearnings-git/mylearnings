@@ -1,4 +1,4 @@
-def call(String toolname, String envname String file) {
+def call(String toolname, String envname, String file) {
   //def scannerHome = tool 'Mysonarscanner'
   
   withSonarQubeEnv("${envname}") {

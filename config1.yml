@@ -17,8 +17,8 @@ Toolname:
    file: 'sonar-project.properties'
 Coverage:
   class: 'JacocoPublisher' 
-  execPattern: '**/build/jacoco/*.exec'
-  classPattern: '**/target/classes'
+  execPattern: '**/jacoco.exec'
+  classPattern: '**/classes'
   sourcePattern: 'src/main/java'
   exclusionPattern: 'src/test*'
    

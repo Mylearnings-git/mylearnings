@@ -3,10 +3,7 @@ def loadValuesYaml(){
 def valuesYaml = readYaml (file: 'config1.yml')
  return valuesYaml;
  }
-def codecoverageYaml()  {
- def coverageyaml = readYaml (file: 'coverage.yml')
-    return coverageyaml;
-}
+
  pipeline
 {
  agent any
@@ -16,8 +13,7 @@ def codecoverageYaml()  {
      steps {
      script {
      valuesYaml = loadValuesYaml()
-     coverageyaml = codecoverageYaml()
-     //println valuesYaml.getClass()
+     
          }
     }
   }
@@ -37,7 +33,7 @@ def codecoverageYaml()  {
     {
       steps {
                         
-     sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname)
+     sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname, valuesYaml.Toolname.file )
                           
               }
     }
@@ -51,7 +47,7 @@ def codecoverageYaml()  {
      
      stage('Publish Test Coverage Report') {
    steps {
-    code(coverageyaml.Coverage.class, coverageyaml.Coverage.execPattern, coverageyaml.Coverage.classPattern, coverageyaml.Coverage.sourcePattern, coverageyaml.Coverage.exclusionPattern)
+    code(valuesYaml.Coverage.class, valuesYaml.Coverage.execPattern, valuesYaml.Coverage.classPattern, valuesYaml.Coverage.sourcePattern, valuesYaml.Coverage.exclusionPattern)
         
           }
       }

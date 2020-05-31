@@ -15,12 +15,7 @@ Toolname:
    tool: 'Mysonarscanner'
    envname: 'Mysonar'
    file: 'sonar-project.properties'
-Coverage:
-  class: 'JacocoPublisher' 
-  execPattern: '**/jacoco.exec'
-  classPattern: '**/classes'
-  sourcePattern: 'src/main/java'
-  exclusionPattern: 'src/test*'
+
    
 
       

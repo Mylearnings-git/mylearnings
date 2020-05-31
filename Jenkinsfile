@@ -46,13 +46,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
               }
     }
      
-     stage('Publish Test Coverage Report') {
-   steps {
-    code(valuesYaml.Coverage.class, valuesYaml.Coverage.execPattern, valuesYaml.Coverage.classPattern, valuesYaml.Coverage.sourcePattern, valuesYaml.Coverage.exclusionPattern)
-        
-          }
-      }
-   
+      
      stage ('Docker build')
     {
       steps {

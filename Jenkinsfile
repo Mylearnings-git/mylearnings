@@ -8,7 +8,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
 {
  agent any
     stages {
-    stage ('deployment')
+    stage ('calling yaml')
     {
      steps {
      script {

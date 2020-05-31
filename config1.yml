@@ -18,7 +18,7 @@ Toolname:
 Coverage:
   class: 'JacocoPublisher' 
   execPattern: '**/build/jacoco/*.exec'
-  classPattern: '**/build/classes'
+  classPattern: '**/target/classes'
   sourcePattern: 'src/main/java'
   exclusionPattern: 'src/test*'
    

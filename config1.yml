@@ -14,6 +14,7 @@ CredId:
 Toolname:
    tool: 'Mysonarscanner'
    envname: 'Mysonar'
+   File: 'sonar-project.properties'
 Coverage:
   class: 'JacocoPublisher' 
   execPattern: '**/target/*.exec'

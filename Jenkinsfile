@@ -29,14 +29,7 @@ def valuesYaml = readYaml (file: 'config1.yml')
         mavenbuild()
       }
     }
-    stage ('sonar analysis')
-    {
-      steps {
-                        
-     sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname, valuesYaml.Toolname.file )
-                          
-              }
-    }
+    
      
  stage('Junit')
    {
@@ -44,6 +37,14 @@ def valuesYaml = readYaml (file: 'config1.yml')
      test()
     }
    }
+     stage ('sonar analysis')
+    {
+      steps {
+                        
+     sonar(valuesYaml.Toolname.tool, valuesYaml.Toolname.envname, valuesYaml.Toolname.file )
+                          
+              }
+    }
      
      stage('Publish Test Coverage Report') {
    steps {
